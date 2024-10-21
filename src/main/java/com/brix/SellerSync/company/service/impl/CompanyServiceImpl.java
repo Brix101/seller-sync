@@ -51,7 +51,7 @@ public class CompanyServiceImpl implements CompanyService {
             .id(company.getId())
             .name(company.getName())
             .build();
-        log.info(companyEntity.toString());
+        
         final CompanyEntity savedCompanyEntity = companyRepository.save(companyEntity);
         return companyEntityToCompany(savedCompanyEntity);
     }

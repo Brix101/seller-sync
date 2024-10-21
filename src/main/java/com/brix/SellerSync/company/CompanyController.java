@@ -55,7 +55,6 @@ public class CompanyController {
         return foundCompany
         .map(existingCompany -> {
             company.setId(id);
-            log.info(company.toString());
             final Company updatedCompany = companyService.save(company);
             return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
         })
