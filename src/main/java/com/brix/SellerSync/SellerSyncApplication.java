@@ -7,6 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.brix.SellerSync.color.ColorPrinter;
+import com.brix.SellerSync.color.impl.ColorPrinterImpl;
+
 import lombok.extern.java.Log;
 
 
@@ -26,9 +29,12 @@ public class SellerSyncApplication implements CommandLineRunner{
 	
 	@Override
 	public void run(final String... args){
+		final ColorPrinter colorPrinter = new ColorPrinterImpl();
+
+		log.info("Color: " + colorPrinter.print());
+
 		log.info("DataSource: " + dataSource.toString());
 		final JdbcTemplate restTemplate = new JdbcTemplate(dataSource);
 		restTemplate.execute("select 1");
 	}
-
 }
